@@ -34,27 +34,31 @@ const Header = () => {
             <li>
               <Link href="/">Home</Link>
             </li>
+            {status === "authenticated" && (
+              <>
+                <li>
+                  <Link href="/find">Find</Link>
+                </li>
+                <li>
+                  <Link href="/rate">Rate</Link>
+                </li>
+              </>
+            )}
             <li>
-              <Link href="/find">Find</Link>
-            </li>
-            <li>
-              <Link href="/rate">Rate</Link>
-            </li>
-            <div className="divider" />
-            {status === "authenticated" ? (
-              <li>
-                {session?.user?.name}
-                <Link className="ml-3" href="/api/auth/signout">
-                  Logout
-                </Link>
-              </li>
-            ) : (
-              <li>
+              <div className="divider" />
+              {status === "authenticated" ? (
+                <>
+                  {session?.user?.name}
+                  <Link className="ml-3" href="/api/auth/signout">
+                    Logout
+                  </Link>
+                </>
+              ) : (
                 <Link className="mr-5" href="/api/auth/signin">
                   Login
                 </Link>
-              </li>
-            )}
+              )}
+            </li>
           </ul>
         </div>
       </div>
