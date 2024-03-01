@@ -1,7 +1,8 @@
 "use client";
 import { useSession } from "next-auth/react";
 import React from "react";
-import { useForm, Resolver } from "react-hook-form";
+import { useForm, Resolver, Controller } from "react-hook-form";
+import RatingStars from "../components/RatingStars/RatingStars";
 
 type FormValues = {
   comment: string;
@@ -19,6 +20,7 @@ const RatingForm = ({ selectedPlaceId, ratingType }: Props) => {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm<FormValues>({});
 
@@ -56,11 +58,16 @@ const RatingForm = ({ selectedPlaceId, ratingType }: Props) => {
         placeholder="Comment"
       ></textarea>
 
-      <input
-        type="number"
-        className="input input-bordered w-full max-w-xs mt-2"
-        {...register("rating")}
-        placeholder="Rating"
+      <Controller
+        name="rating"
+        control={control}
+        defaultValue={"0"}
+        render={({ field }) => (
+          <RatingStars
+            stars={parseFloat(field.value)}
+            setStars={field.onChange}
+          />
+        )}
       />
 
       <button type="submit" className="btn btn-accent mt-2">

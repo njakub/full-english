@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
 
   const ratingData: any = {
     comment: body.comment,
-    rating: parseInt(body.rating),
+    rating: parseFloat(body.rating),
     type: body.type,
     placeId: body.placeId,
     User: {
