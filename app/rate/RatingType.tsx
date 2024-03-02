@@ -12,7 +12,7 @@ const RatingType = ({ ratingType, setRatingType }: Props) => {
   };
   return (
     <div className="flex items-center mt-2">
-      <span className="mr-4">Rating Type:</span>
+      <span className="label label-text mr-4">Rating Type:</span>
       <label className="flex items-center mr-4">
         <input
           type="radio"

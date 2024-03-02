@@ -51,7 +51,15 @@ function PlacesAutocomplete({ setSelectedPlaceId }: Props) {
   }, []);
 
   return (
-    <input className="input input-bordered w-full max-w-xs" id="search-input" />
+    <label className="form-control w-full max-w-xs mb-2">
+      <div className="label">
+        <span className="label-text">Where did you eat?</span>
+      </div>
+      <input
+        className="input input-bordered w-full max-w-xs"
+        id="search-input"
+      />
+    </label>
   );
 }
 

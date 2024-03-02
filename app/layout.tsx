@@ -4,6 +4,7 @@ import Header from "./Header";
 import "./globals.css";
 import AuthProvider from "./auth/Provider";
 import React from "react";
+import QueryClientProvider from "./QueryClientProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,10 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="cupcake">
       <body className={inter.className}>
-        <AuthProvider>
-          <Header />
-          <main className="p-5"> {children}</main>
-        </AuthProvider>
+        <QueryClientProvider>
+          <AuthProvider>
+            <Header />
+            <main className="p-5"> {children}</main>
+          </AuthProvider>
+        </QueryClientProvider>
       </body>
     </html>
   );

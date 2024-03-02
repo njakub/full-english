@@ -3,6 +3,8 @@ import { useSession } from "next-auth/react";
 import React from "react";
 import { useForm, Resolver, Controller } from "react-hook-form";
 import RatingStars from "../components/RatingStars/RatingStars";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 
 type FormValues = {
   comment: string;
@@ -14,6 +16,14 @@ interface Props {
   ratingType: "basic" | "detailed";
 }
 
+interface Rating {
+  placeId: string;
+  type: "basic" | "detailed";
+  userEmail: string;
+  comment: string;
+  rating: number;
+}
+
 const RatingForm = ({ selectedPlaceId, ratingType }: Props) => {
   const { status, data: session } = useSession();
 
@@ -22,42 +32,31 @@ const RatingForm = ({ selectedPlaceId, ratingType }: Props) => {
     handleSubmit,
     control,
     formState: { errors },
+    reset,
   } = useForm<FormValues>({});
 
-  async function postRating(data: any) {
-    console.log("sending:", data);
-    try {
-      const response = await fetch("http://localhost:3000/api/ratings", {
-        method: "POST", // or 'PUT'
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
+  const newRatingMutation = useMutation({
+    mutationFn: (newRatingData: Rating) =>
+      axios.post("/api/ratings", newRatingData),
+    onSuccess: () => {
+      reset();
+    },
+  });
+
+  const onSubmit = handleSubmit((data) => {
+    if (session?.user?.email) {
+      newRatingMutation.mutate({
+        ...data,
+        rating: Number(data.rating),
+        placeId: selectedPlaceId,
+        type: ratingType,
+        userEmail: session?.user?.email, // Add a default value for userId
       });
-
-      const result = await response.json();
-      console.log("Success:", result);
-    } catch (error) {
-      console.error("Error:", error);
     }
-  }
+  });
 
-  const onSubmit = handleSubmit((data) =>
-    postRating({
-      ...data,
-      placeId: selectedPlaceId,
-      type: ratingType,
-      userEmail: session?.user?.email, // Add a default value for userId
-    })
-  );
   return (
     <form onSubmit={onSubmit}>
-      <textarea
-        className="textarea textarea-bordered mt-2"
-        {...register("comment")}
-        placeholder="Comment"
-      ></textarea>
-
       <Controller
         name="rating"
         control={control}
@@ -70,9 +69,22 @@ const RatingForm = ({ selectedPlaceId, ratingType }: Props) => {
         )}
       />
 
-      <button type="submit" className="btn btn-accent mt-2">
-        Submit
-      </button>
+      <label className="form-control w-full max-w-xs mb-2">
+        <div className="label">
+          <span className="label-text">Care to elaborate?</span>
+        </div>
+        <textarea
+          className="textarea textarea-bordered w-full max-w-xs "
+          {...register("comment")}
+          placeholder="Comment"
+        ></textarea>
+      </label>
+
+      <div className="flex justify-center">
+        <button type="submit" className="btn btn-accent mt-2">
+          Submit Rating
+        </button>
+      </div>
     </form>
   );
 };

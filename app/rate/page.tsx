@@ -3,6 +3,8 @@ import React from "react";
 import RatingForm from "./RatingForm";
 import PlacesAutocomplete from "../components/PlacesAutocomplete/PlacesAutocomplete";
 import RatingType from "./RatingType";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 
 const RatePage = () => {
   const [selectedPlaceId, setSelectedPlaceId] = React.useState<
@@ -14,9 +16,8 @@ const RatePage = () => {
 
   return (
     <>
-      <h1>Rate Page</h1>
-      <PlacesAutocomplete setSelectedPlaceId={setSelectedPlaceId} />
       <RatingType ratingType={ratingType} setRatingType={setRatingType} />
+      <PlacesAutocomplete setSelectedPlaceId={setSelectedPlaceId} />
       {selectedPlaceId && (
         <RatingForm selectedPlaceId={selectedPlaceId} ratingType={ratingType} />
       )}
