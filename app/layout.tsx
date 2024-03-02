@@ -21,13 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="cupcake">
-      <body
-        className={`${inter.className} flex flex-col items-center justify-center`}
-      >
+      <body className={`${inter.className}`}>
         <QueryClientProvider>
           <AuthProvider>
             <Header />
-            <main className="p-5"> {children}</main>
+            <main className="p-5 flex flex-col w-9/10 mx-auto">{children}</main>
           </AuthProvider>
         </QueryClientProvider>
       </body>
