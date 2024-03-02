@@ -21,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="cupcake">
-      <body className={inter.className}>
+      <body
+        className={`${inter.className} flex flex-col items-center justify-center`}
+      >
         <QueryClientProvider>
           <AuthProvider>
             <Header />
