@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React from "react";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 const Header = () => {
   const { status, data: session } = useSession();
@@ -14,7 +15,7 @@ const Header = () => {
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-8 w-8"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -62,8 +63,8 @@ const Header = () => {
           </ul>
         </div>
       </div>
-      <Link className="navbar-end btn btn-ghost text-xl" href="/">
-        Full English
+      <Link className="navbar-end" href="/">
+        <Image src="/FullEnglishLogo.png" alt="Logo" width={150} height={150} />
       </Link>
     </div>
   );
