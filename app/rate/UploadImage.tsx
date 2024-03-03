@@ -12,7 +12,6 @@ interface Props {
 }
 
 const UploadImage = ({ imageId, setImageId }: Props) => {
-  console.log("imageId", imageId);
   return (
     <div className="flex flex-col items-center">
       {imageId && (

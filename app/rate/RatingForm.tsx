@@ -87,7 +87,7 @@ const RatingForm = ({ selectedPlaceId, ratingType }: Props) => {
 
       <label className="form-control w-full max-w-xs mb-2">
         <div className="label">
-          <span className="label-text">Let's see it...</span>
+          <span className="label-text">Let&apos;s see it...</span>
         </div>
         <Controller
           name="imageId"
