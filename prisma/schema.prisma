@@ -33,6 +33,7 @@ model Rating {
   type    String
   date    DateTime @default(now())
   placeId String
+  imageId String?
 }
 
 model Account {

@@ -34,6 +34,7 @@ export async function POST(request: NextRequest) {
         id: user.id,
       },
     },
+    ...(body.imageId && { imageId: body.imageId }),
   };
 
   if (body.items && body.items.length > 0) {

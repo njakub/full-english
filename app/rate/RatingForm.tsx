@@ -5,10 +5,12 @@ import { useForm, Resolver, Controller } from "react-hook-form";
 import RatingStars from "../components/RatingStars/RatingStars";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import UploadImage from "./UploadImage";
 
 type FormValues = {
   comment: string;
   rating: string;
+  imageId: string;
 };
 
 interface Props {
@@ -22,6 +24,7 @@ interface Rating {
   userEmail: string;
   comment: string;
   rating: number;
+  imageId: string;
 }
 
 const RatingForm = ({ selectedPlaceId, ratingType }: Props) => {
@@ -33,7 +36,9 @@ const RatingForm = ({ selectedPlaceId, ratingType }: Props) => {
     control,
     formState: { errors },
     reset,
-  } = useForm<FormValues>({});
+  } = useForm<FormValues>({
+    defaultValues: { comment: "", rating: "0", imageId: "" },
+  });
 
   const newRatingMutation = useMutation({
     mutationFn: (newRatingData: Rating) =>
@@ -51,6 +56,7 @@ const RatingForm = ({ selectedPlaceId, ratingType }: Props) => {
         placeId: selectedPlaceId,
         type: ratingType,
         userEmail: session?.user?.email, // Add a default value for userId
+        imageId: data.imageId,
       });
     }
   });
@@ -60,7 +66,6 @@ const RatingForm = ({ selectedPlaceId, ratingType }: Props) => {
       <Controller
         name="rating"
         control={control}
-        defaultValue={"0"}
         render={({ field }) => (
           <RatingStars
             stars={parseFloat(field.value)}
@@ -78,6 +83,19 @@ const RatingForm = ({ selectedPlaceId, ratingType }: Props) => {
           {...register("comment")}
           placeholder="Comment"
         ></textarea>
+      </label>
+
+      <label className="form-control w-full max-w-xs mb-2">
+        <div className="label">
+          <span className="label-text">Let's see it...</span>
+        </div>
+        <Controller
+          name="imageId"
+          control={control}
+          render={({ field }) => (
+            <UploadImage imageId={field.value} setImageId={field.onChange} />
+          )}
+        />
       </label>
 
       <div className="flex justify-center">
