@@ -1,8 +1,14 @@
-# The Full English
+# Full English Explorer
 
 ## Description
 
-Your go-to platform for discovering and rating Full English breakfasts around the globe. Whether you're a foodie looking for your next delicious meal or a traveler seeking the comfort of a hearty breakfast, our app connects you with a community of Full English enthusiasts. Explore reviews, rate your experiences, and contribute to a global breakfast movement. Start your gastronomic adventure with us today!
+Your go-to platform for discovering and rating Full English
+breakfasts around the globe. Whether you&apos;re a seasoned pro
+seeking a hangover cure or a complete beginner ready to dive into
+a proper breakfast, our app connects you with a community of Full
+English enthusiasts. Explore reviews, rate your experiences, and
+contribute to a global breakfast movement. Embark on your
+gastronomic adventure with us today!
 
 ## Tech Stack
 
