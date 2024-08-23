@@ -15,10 +15,10 @@ type FormValues = {
 
 interface Props {
   selectedPlaceId: string;
-  ratingType: "basic" | "detailed";
+  reviewType: "basic" | "detailed";
 }
 
-interface Rating {
+interface Review {
   placeId: string;
   type: "basic" | "detailed";
   userEmail: string;
@@ -27,7 +27,7 @@ interface Rating {
   imageId: string;
 }
 
-const RatingForm = ({ selectedPlaceId, ratingType }: Props) => {
+const ReviewForm = ({ selectedPlaceId, reviewType }: Props) => {
   const { status, data: session } = useSession();
 
   const {
@@ -40,9 +40,9 @@ const RatingForm = ({ selectedPlaceId, ratingType }: Props) => {
     defaultValues: { comment: "", rating: "0", imageId: "" },
   });
 
-  const newRatingMutation = useMutation({
-    mutationFn: (newRatingData: Rating) =>
-      axios.post("/api/ratings", newRatingData),
+  const newReviewMutation = useMutation({
+    mutationFn: (newReviewData: Review) =>
+      axios.post("/api/reviews", newReviewData),
     onSuccess: () => {
       reset();
     },
@@ -50,11 +50,11 @@ const RatingForm = ({ selectedPlaceId, ratingType }: Props) => {
 
   const onSubmit = handleSubmit((data) => {
     if (session?.user?.email) {
-      newRatingMutation.mutate({
+      newReviewMutation.mutate({
         ...data,
         rating: Number(data.rating),
         placeId: selectedPlaceId,
-        type: ratingType,
+        type: reviewType,
         userEmail: session?.user?.email, // Add a default value for userId
         imageId: data.imageId,
       });
@@ -68,8 +68,10 @@ const RatingForm = ({ selectedPlaceId, ratingType }: Props) => {
         control={control}
         render={({ field }) => (
           <RatingStars
+            name="basicRating"
             stars={parseFloat(field.value)}
             setStars={field.onChange}
+            label={""}
           />
         )}
       />
@@ -100,11 +102,11 @@ const RatingForm = ({ selectedPlaceId, ratingType }: Props) => {
 
       <div className="flex justify-center">
         <button type="submit" className="btn btn-accent mt-2">
-          Submit Rating
+          Submit Review
         </button>
       </div>
     </form>
   );
 };
 
-export default RatingForm;
+export default ReviewForm;

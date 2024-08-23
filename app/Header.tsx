@@ -41,7 +41,7 @@ const Header = () => {
                   <Link href="/find">Find</Link>
                 </li>
                 <li>
-                  <Link href="/rate">Rate</Link>
+                  <Link href="/review">Review</Link>
                 </li>
               </>
             )}

@@ -1,0 +1,555 @@
+{
+  "address_components": [
+    {
+      "long_name": "76",
+      "short_name": "76",
+      "types": ["street_number"]
+    },
+    {
+      "long_name": "Prospect Street",
+      "short_name": "Prospect St",
+      "types": ["route"]
+    },
+    {
+      "long_name": "Reading",
+      "short_name": "Reading",
+      "types": ["postal_town"]
+    },
+    {
+      "long_name": "Berkshire",
+      "short_name": "Berkshire",
+      "types": ["administrative_area_level_2", "political"]
+    },
+    {
+      "long_name": "England",
+      "short_name": "England",
+      "types": ["administrative_area_level_1", "political"]
+    },
+    {
+      "long_name": "United Kingdom",
+      "short_name": "GB",
+      "types": ["country", "political"]
+    },
+    {
+      "long_name": "RG4 8JN",
+      "short_name": "RG4 8JN",
+      "types": ["postal_code"]
+    }
+  ],
+  "adr_address": "<span class=\"street-address\">76 Prospect Street</span>, <span class=\"locality\">Reading</span> <span class=\"postal-code\">RG4 8JN</span>, <span class=\"country-name\">UK</span>",
+  "business_status": "OPERATIONAL",
+  "current_opening_hours": {
+    "open_now": false,
+    "periods": [
+      {
+        "close": {
+          "date": "2024-08-25",
+          "day": 0,
+          "time": "2200"
+        },
+        "open": {
+          "date": "2024-08-25",
+          "day": 0,
+          "time": "1000"
+        }
+      },
+      {
+        "close": {
+          "date": "2024-08-26",
+          "day": 1,
+          "time": "2300"
+        },
+        "open": {
+          "date": "2024-08-26",
+          "day": 1,
+          "time": "1000"
+        }
+      },
+      {
+        "close": {
+          "date": "2024-08-27",
+          "day": 2,
+          "time": "2300"
+        },
+        "open": {
+          "date": "2024-08-27",
+          "day": 2,
+          "time": "1700"
+        }
+      },
+      {
+        "close": {
+          "date": "2024-08-28",
+          "day": 3,
+          "time": "2300"
+        },
+        "open": {
+          "date": "2024-08-28",
+          "day": 3,
+          "time": "1700"
+        }
+      },
+      {
+        "close": {
+          "date": "2024-08-29",
+          "day": 4,
+          "time": "2300"
+        },
+        "open": {
+          "date": "2024-08-29",
+          "day": 4,
+          "time": "1200"
+        }
+      },
+      {
+        "close": {
+          "date": "2024-08-24",
+          "day": 6,
+          "time": "0000"
+        },
+        "open": {
+          "date": "2024-08-23",
+          "day": 5,
+          "time": "1200"
+        }
+      },
+      {
+        "close": {
+          "date": "2024-08-25",
+          "day": 0,
+          "time": "0000"
+        },
+        "open": {
+          "date": "2024-08-24",
+          "day": 6,
+          "time": "1000"
+        }
+      }
+    ],
+    "special_days": [
+      {
+        "date": "2024-08-26",
+        "exceptional_hours": true
+      }
+    ],
+    "weekday_text": [
+      "Monday: 10:00 am – 11:00 pm",
+      "Tuesday: 5:00 – 11:00 pm",
+      "Wednesday: 5:00 – 11:00 pm",
+      "Thursday: 12:00 – 11:00 pm",
+      "Friday: 12:00 pm – 12:00 am",
+      "Saturday: 10:00 am – 12:00 am",
+      "Sunday: 10:00 am – 10:00 pm"
+    ]
+  },
+  "formatted_address": "76 Prospect St, Reading RG4 8JN, UK",
+  "formatted_phone_number": "0118 947 0749",
+  "geometry": {
+    "location": {
+      "lat": 51.4694408,
+      "lng": -0.9703499
+    },
+    "viewport": {
+      "south": 51.4680397197085,
+      "west": -0.9716397302915022,
+      "north": 51.4707376802915,
+      "east": -0.9689417697084981
+    }
+  },
+  "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+  "icon_background_color": "#FF9E67",
+  "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+  "international_phone_number": "+44 118 947 0749",
+  "name": "The Last Crumb",
+  "opening_hours": {
+    "open_now": false,
+    "periods": [
+      {
+        "close": {
+          "day": 0,
+          "time": "2200",
+          "hours": 22,
+          "minutes": 0,
+          "nextDate": 1724619600000
+        },
+        "open": {
+          "day": 0,
+          "time": "1000",
+          "hours": 10,
+          "minutes": 0,
+          "nextDate": 1724576400000
+        }
+      },
+      {
+        "close": {
+          "day": 1,
+          "time": "2300",
+          "hours": 23,
+          "minutes": 0,
+          "nextDate": 1724709600000
+        },
+        "open": {
+          "day": 1,
+          "time": "1700",
+          "hours": 17,
+          "minutes": 0,
+          "nextDate": 1724688000000
+        }
+      },
+      {
+        "close": {
+          "day": 2,
+          "time": "2300",
+          "hours": 23,
+          "minutes": 0,
+          "nextDate": 1724796000000
+        },
+        "open": {
+          "day": 2,
+          "time": "1700",
+          "hours": 17,
+          "minutes": 0,
+          "nextDate": 1724774400000
+        }
+      },
+      {
+        "close": {
+          "day": 3,
+          "time": "2300",
+          "hours": 23,
+          "minutes": 0,
+          "nextDate": 1724882400000
+        },
+        "open": {
+          "day": 3,
+          "time": "1700",
+          "hours": 17,
+          "minutes": 0,
+          "nextDate": 1724860800000
+        }
+      },
+      {
+        "close": {
+          "day": 4,
+          "time": "2300",
+          "hours": 23,
+          "minutes": 0,
+          "nextDate": 1724968800000
+        },
+        "open": {
+          "day": 4,
+          "time": "1200",
+          "hours": 12,
+          "minutes": 0,
+          "nextDate": 1724929200000
+        }
+      },
+      {
+        "close": {
+          "day": 6,
+          "time": "0000",
+          "hours": 0,
+          "minutes": 0,
+          "nextDate": 1724454000000
+        },
+        "open": {
+          "day": 5,
+          "time": "1200",
+          "hours": 12,
+          "minutes": 0,
+          "nextDate": 1724410800000
+        }
+      },
+      {
+        "close": {
+          "day": 0,
+          "time": "0000",
+          "hours": 0,
+          "minutes": 0,
+          "nextDate": 1724540400000
+        },
+        "open": {
+          "day": 6,
+          "time": "1000",
+          "hours": 10,
+          "minutes": 0,
+          "nextDate": 1724490000000
+        }
+      }
+    ],
+    "weekday_text": [
+      "Monday: 5:00 – 11:00 pm",
+      "Tuesday: 5:00 – 11:00 pm",
+      "Wednesday: 5:00 – 11:00 pm",
+      "Thursday: 12:00 – 11:00 pm",
+      "Friday: 12:00 pm – 12:00 am",
+      "Saturday: 10:00 am – 12:00 am",
+      "Sunday: 10:00 am – 10:00 pm"
+    ]
+  },
+  "photos": [
+    {
+      "height": 3024,
+      "html_attributions": [
+        "<a href=\"https://maps.google.com/maps/contrib/105224455607857195901\">Mark Lillywhite</a>"
+      ],
+      "width": 4032
+    },
+    {
+      "height": 1739,
+      "html_attributions": [
+        "<a href=\"https://maps.google.com/maps/contrib/111158884517715852846\">The Last Crumb</a>"
+      ],
+      "width": 2048
+    },
+    {
+      "height": 8192,
+      "html_attributions": [
+        "<a href=\"https://maps.google.com/maps/contrib/113631886873105384796\">Simon Quick</a>"
+      ],
+      "width": 6144
+    },
+    {
+      "height": 1008,
+      "html_attributions": [
+        "<a href=\"https://maps.google.com/maps/contrib/111158884517715852846\">The Last Crumb</a>"
+      ],
+      "width": 2000
+    },
+    {
+      "height": 1536,
+      "html_attributions": [
+        "<a href=\"https://maps.google.com/maps/contrib/111158884517715852846\">The Last Crumb</a>"
+      ],
+      "width": 2048
+    },
+    {
+      "height": 2544,
+      "html_attributions": [
+        "<a href=\"https://maps.google.com/maps/contrib/104614330552260826097\">Max Gorbachev</a>"
+      ],
+      "width": 3392
+    },
+    {
+      "height": 4080,
+      "html_attributions": [
+        "<a href=\"https://maps.google.com/maps/contrib/115256168633322436973\">Sarah Wolstencroft</a>"
+      ],
+      "width": 3072
+    },
+    {
+      "height": 4032,
+      "html_attributions": [
+        "<a href=\"https://maps.google.com/maps/contrib/103294864279878684189\">Mario Longhi</a>"
+      ],
+      "width": 3024
+    },
+    {
+      "height": 3472,
+      "html_attributions": [
+        "<a href=\"https://maps.google.com/maps/contrib/111674546760658978388\">Andrew Long</a>"
+      ],
+      "width": 4640
+    },
+    {
+      "height": 4032,
+      "html_attributions": [
+        "<a href=\"https://maps.google.com/maps/contrib/114156056406130022326\">Václav Pavlík</a>"
+      ],
+      "width": 3024
+    }
+  ],
+  "place_id": "ChIJR5NWWYSbdkgRmwQtETMRrus",
+  "plus_code": {
+    "compound_code": "F29H+QV Reading, UK",
+    "global_code": "9C3XF29H+QV"
+  },
+  "price_level": 2,
+  "rating": 4.5,
+  "reference": "ChIJR5NWWYSbdkgRmwQtETMRrus",
+  "reviews": [
+    {
+      "author_name": "Tom Sheppard",
+      "author_url": "https://www.google.com/maps/contrib/109795509532070301723/reviews",
+      "language": "en",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWO22yJD0ipLH_gETNeMQ7clGSdQL9vbleQdY7obZRyuFTmAtRndg=s128-c0x00000000-cc-rp-mo-ba3",
+      "rating": 5,
+      "relative_time_description": "3 weeks ago",
+      "text": "Great al fresco family dinner on a rare warm and sunny evening. Brilliant burgers and pizzas and of course craft beer. Bigger kids enjoyed the pizzas and smaller ones enjoyed the main course, ice cream and a drink - decent value too. Will be back again, hopefully on another sunny evening (but inside is just as lovely as the outdoor terraces)",
+      "time": 1722109225
+    },
+    {
+      "author_name": "Ben B",
+      "author_url": "https://www.google.com/maps/contrib/117958979112872943389/reviews",
+      "language": "en",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVAjZKl4g6vlRdGE6N1k4dtWP11WQaDPUK6VVjwM2tC_x0c-r3k=s128-c0x00000000-cc-rp-mo-ba3",
+      "rating": 5,
+      "relative_time_description": "5 months ago",
+      "text": "Message to owner: Please consider your chip portion sizes.\n\nI love The Last Crumb, staff are always really great and the vibe is top. Love grabbing a few pizzas with the kids. But over the last year or more a portion of chips, £3.50, has been getting to ridiculous small sizes. See the photo, hand on heart I took that snap upon them arriving.\n\nLove the pub, strongly recommend but let's keep an eye on fair transactions.\n\nPs. Please keep the smash burger as a permanent menu item it was really amazing.",
+      "time": 1708863349
+    },
+    {
+      "author_name": "Chris Gummerson",
+      "author_url": "https://www.google.com/maps/contrib/116697337513396541971/reviews",
+      "language": "en",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjU65Imlvv6E48KHZUIX3g1ckw8I2CBZ0w9alNs5rVENwcRA2b4=s128-c0x00000000-cc-rp-mo-ba3",
+      "rating": 4,
+      "relative_time_description": "2 months ago",
+      "text": "Very nice setting with an exalent beer garden.\nReasonable priced food and drink",
+      "time": 1718468174
+    },
+    {
+      "author_name": "Mark Lillywhite",
+      "author_url": "https://www.google.com/maps/contrib/105224455607857195901/reviews",
+      "language": "en",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjX-kSnzbSMAzDU2Ab0BKgazPzLztsMCAqYc5KU6ge-zI8-0Xzrc=s128-c0x00000000-cc-rp-mo",
+      "rating": 5,
+      "relative_time_description": "5 months ago",
+      "text": "Popped in Sunday morning for brekker before going shopping. Great service and atmosphere, easy parking - breakfast choice was a good mix of eggs, avocado, vegetarian and good old bacon / sausage & egg muffin. Great experience and supporting something alot more local than The costa mega chain.",
+      "time": 1709462929
+    },
+    {
+      "author_name": "CJ Rutherford Films",
+      "author_url": "https://www.google.com/maps/contrib/105723368039981092153/reviews",
+      "language": "en",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWXm2QShgu1yPVeN55saMuU81KD-a7dgM6UJxgWHAaiTXgzvPc=s128-c0x00000000-cc-rp-mo",
+      "rating": 3,
+      "relative_time_description": "2 months ago",
+      "text": "We were here as a booking of13 early on a Saturday evening for food and drinks. Food was amazing. However, service was incredibly slow and although everybody ordered around the same time, some members of the party were served their food over to an hour later than others, so we were unable to enjoy our food together sadly. Staff were friendly and apologetic but seemed very rushed and light on numbers. Car park was also completely full so of the 3 cars we arrived in, we all had to find parking elsewhere",
+      "time": 1718007508
+    }
+  ],
+  "secondary_opening_hours": [
+    {
+      "open_now": false,
+      "periods": [
+        {
+          "close": {
+            "date": "2024-08-25",
+            "day": 0,
+            "time": "2100"
+          },
+          "open": {
+            "date": "2024-08-25",
+            "day": 0,
+            "time": "1000"
+          }
+        },
+        {
+          "close": {
+            "date": "2024-08-26",
+            "day": 1,
+            "time": "2100"
+          },
+          "open": {
+            "date": "2024-08-26",
+            "day": 1,
+            "time": "1700"
+          }
+        },
+        {
+          "close": {
+            "date": "2024-08-27",
+            "day": 2,
+            "time": "2100"
+          },
+          "open": {
+            "date": "2024-08-27",
+            "day": 2,
+            "time": "1700"
+          }
+        },
+        {
+          "close": {
+            "date": "2024-08-28",
+            "day": 3,
+            "time": "2100"
+          },
+          "open": {
+            "date": "2024-08-28",
+            "day": 3,
+            "time": "1700"
+          }
+        },
+        {
+          "close": {
+            "date": "2024-08-29",
+            "day": 4,
+            "time": "1500"
+          },
+          "open": {
+            "date": "2024-08-29",
+            "day": 4,
+            "time": "1200"
+          }
+        },
+        {
+          "close": {
+            "date": "2024-08-29",
+            "day": 4,
+            "time": "2100"
+          },
+          "open": {
+            "date": "2024-08-29",
+            "day": 4,
+            "time": "1700"
+          }
+        },
+        {
+          "close": {
+            "date": "2024-08-23",
+            "day": 5,
+            "time": "1500"
+          },
+          "open": {
+            "date": "2024-08-23",
+            "day": 5,
+            "time": "1200"
+          }
+        },
+        {
+          "close": {
+            "date": "2024-08-23",
+            "day": 5,
+            "time": "2100"
+          },
+          "open": {
+            "date": "2024-08-23",
+            "day": 5,
+            "time": "1700"
+          }
+        },
+        {
+          "close": {
+            "date": "2024-08-24",
+            "day": 6,
+            "time": "2100"
+          },
+          "open": {
+            "date": "2024-08-24",
+            "day": 6,
+            "time": "1000"
+          }
+        }
+      ],
+      "type": "KITCHEN",
+      "weekday_text": [
+        "Monday: 5:00 – 9:00 pm",
+        "Tuesday: 5:00 – 9:00 pm",
+        "Wednesday: 5:00 – 9:00 pm",
+        "Thursday: 12:00 – 3:00 pm, 5:00 – 9:00 pm",
+        "Friday: 12:00 – 3:00 pm, 5:00 – 9:00 pm",
+        "Saturday: 10:00 am – 9:00 pm",
+        "Sunday: 10:00 am – 9:00 pm"
+      ]
+    }
+  ],
+  "types": ["bar", "point_of_interest", "establishment"],
+  "url": "https://maps.google.com/?cid=16982530155889886363",
+  "user_ratings_total": 519,
+  "utc_offset": 60,
+  "vicinity": "76 Prospect Street, Reading",
+  "website": "https://dodopubs.com/locations/the-last-crumb/",
+  "html_attributions": [],
+  "utc_offset_minutes": 60
+}

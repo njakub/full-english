@@ -5,7 +5,7 @@ export async function GET(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  const rating = await prisma.rating.findUnique({
+  const review = await prisma.review.findUnique({
     where: {
       id: Number(params.id),
     },
@@ -14,9 +14,9 @@ export async function GET(
     },
   });
 
-  if (!rating) {
-    return NextResponse.json({ error: "Rating not found" }, { status: 404 });
+  if (!review) {
+    return NextResponse.json({ error: "review not found" }, { status: 404 });
   }
 
-  return NextResponse.json(rating);
+  return NextResponse.json(review);
 }

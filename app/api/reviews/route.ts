@@ -2,9 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import prisma from "../../../prisma/client";
 
 export async function GET(request: NextRequest) {
-  const ratings = await prisma.rating.findMany();
+  const reviews = await prisma.review.findMany();
 
-  return NextResponse.json(ratings);
+  return NextResponse.json(reviews);
 }
 
 export async function POST(request: NextRequest) {
@@ -24,9 +24,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "User not found" }, { status: 404 });
   }
 
-  const ratingData: any = {
+  const reviewData: any = {
     comment: body.comment,
-    rating: parseFloat(body.rating),
+    review: parseFloat(body.review),
     type: body.type,
     placeId: body.placeId,
     User: {
@@ -38,22 +38,22 @@ export async function POST(request: NextRequest) {
   };
 
   if (body.items && body.items.length > 0) {
-    ratingData.items = {
+    reviewData.items = {
       create: body.items.map((item: any) => ({
         name: item.name,
-        rating: item.rating,
+        review: item.review,
         type: item.type,
         comment: item.comment,
       })),
     };
   }
 
-  const rating = await prisma.rating.create({
-    data: ratingData,
+  const review = await prisma.review.create({
+    data: reviewData,
     include: {
       items: true,
     },
   });
 
-  return NextResponse.json(rating, { status: 201 });
+  return NextResponse.json(review, { status: 201 });
 }

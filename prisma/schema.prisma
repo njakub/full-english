@@ -13,17 +13,28 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Place {
+    id       Int     @id @default(autoincrement())
+    googleId String  @unique
+    name     String
+    address  String
+    rating   Float?
+    googleRating  Float
+    image    String?
+    reviews  Review[]
+}
+
 model Item {
   id       Int     @id @default(autoincrement())
   name     String
   rating   Float
   type     String
   comment  String?
-  Rating   Rating  @relation(fields: [ratingId], references: [id])
-  ratingId Int
+  Review   Review  @relation(fields: [reviewId], references: [id])
+  reviewId Int
 }
 
-model Rating {
+model Review {
   id      Int      @id @default(autoincrement())
   comment String?
   rating  Float
@@ -32,7 +43,8 @@ model Rating {
   userId  String
   type    String
   date    DateTime @default(now())
-  placeId String
+  place   Place    @relation(fields: [placeId], references: [id])
+  placeId Int
   imageId String?
 }
 
@@ -71,7 +83,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-  ratings       Rating[]
+  reviews       Review[]
 }
 
 model VerificationToken {

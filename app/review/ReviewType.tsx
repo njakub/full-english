@@ -1,25 +1,25 @@
 import React from "react";
 
 interface Props {
-  ratingType: "basic" | "detailed";
-  setRatingType: (ratingType: "basic" | "detailed") => void;
+  reviewType: "basic" | "detailed";
+  setReviewType: (reviewType: "basic" | "detailed") => void;
 }
 
-const RatingType = ({ ratingType, setRatingType }: Props) => {
+const ReviewType = ({ reviewType, setReviewType }: Props) => {
   const onOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value === "basic" || e.target.value === "detailed")
-      setRatingType(e.target.value);
+      setReviewType(e.target.value);
   };
   return (
     <div className="flex items-center mt-2">
-      <span className="label label-text mr-4">Rating Type:</span>
+      <span className="label label-text mr-4">Review Type:</span>
       <label className="flex items-center mr-4">
         <input
           type="radio"
           name="basic"
           value="basic"
           className="radio radio-primary mr-1"
-          checked={ratingType === "basic"}
+          checked={reviewType === "basic"}
           onChange={onOptionChange}
         />
         <span className="label-text">Basic</span>
@@ -30,7 +30,7 @@ const RatingType = ({ ratingType, setRatingType }: Props) => {
           name="detailed"
           value="detailed"
           className="radio radio-primary mr-1"
-          checked={ratingType === "detailed"}
+          checked={reviewType === "detailed"}
           onChange={onOptionChange}
         />
         <span className="label-text">Detailed</span>
@@ -39,4 +39,4 @@ const RatingType = ({ ratingType, setRatingType }: Props) => {
   );
 };
 
-export default RatingType;
+export default ReviewType;

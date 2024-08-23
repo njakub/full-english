@@ -1,11 +1,54 @@
 "use client";
 import React, { useEffect } from "react";
+import {
+  getPlaceByGoogleId,
+  createPlace,
+  updatePlace,
+} from "../../lib/places/placesApi";
 
 interface Props {
-  setSelectedPlaceId: (placeId: string | undefined) => void;
+  setSelectedPlace: (placeId: any | undefined) => void;
 }
 
-function PlacesAutocomplete({ setSelectedPlaceId }: Props) {
+/**
+ * This function retrieves the details of a place by its Google ID.
+ * If the place is found, it updates the place with the new details.
+ * If the place is not found (i.e., the server returns a 404 error with a message 'place not found'),
+ * it creates a new place with the given details.
+ * @param googlePlace The place object from Google Places API.
+ * @returns The updated or newly created place.
+ */
+const getPlaceDetails = async (googlePlace: any) => {
+  const newPlace: Place = {
+    googleId: googlePlace.place_id,
+    name: googlePlace.name,
+    address: googlePlace.formatted_address,
+    googleRating: googlePlace.rating,
+    image: googlePlace.photos ? googlePlace.photos[0].getUrl() : null,
+  };
+
+  try {
+    const data = await getPlaceByGoogleId(googlePlace.place_id);
+    if (data.id) {
+      return await updatePlace({ ...newPlace, id: data.id });
+    }
+  } catch (error: any) {
+    if (
+      error.response &&
+      error.response.status === 404 &&
+      error.response.data.error === "place not found"
+    ) {
+      // If the place is not found, create a new one
+      return await createPlace(newPlace);
+    } else {
+      throw error;
+    }
+  }
+
+  return newPlace;
+};
+
+function PlacesAutocomplete({ setSelectedPlace }: Props) {
   useEffect(() => {
     const loadGoogleMaps = async () => {
       const { Loader } = await import("@googlemaps/js-api-loader");
@@ -39,10 +82,12 @@ function PlacesAutocomplete({ setSelectedPlaceId }: Props) {
           types: ["establishment"],
         });
 
-        autocomplete.addListener("place_changed", () => {
-          const place = autocomplete.getPlace();
-          console.log(place);
-          setSelectedPlaceId(place.place_id);
+        autocomplete.addListener("place_changed", async () => {
+          const googlePlace = autocomplete.getPlace();
+
+          const place = await getPlaceDetails(googlePlace);
+
+          setSelectedPlace(place);
         });
       });
     };
