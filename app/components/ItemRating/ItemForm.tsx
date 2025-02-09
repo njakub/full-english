@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Select, { components } from "react-select";
 import RatingStars from "../RatingStars/RatingStars";
-import { ItemType } from "./ItemList";
+import { ItemType } from "./DetailedReview";
 import Image from "next/image";
 
 interface ItemProps {
@@ -63,12 +63,7 @@ const ItemForm = ({ addItem, setShowItemForm, availableItems }: ItemProps) => {
         components={{ Option: IconOption }}
       />
       {selectedItem && (
-        <RatingStars
-          name={"itemRating"}
-          label={`How was the ${selectedItem.label}?`}
-          stars={stars}
-          setStars={setStars}
-        />
+        <RatingStars name={"itemRating"} stars={stars} setStars={setStars} />
       )}
 
       <button

@@ -6,6 +6,7 @@ import RatingStars from "../components/RatingStars/RatingStars";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import UploadImage from "./UploadImage";
+import ItemList from "../components/ItemRating/DetailedReview";
 
 type FormValues = {
   comment: string;
@@ -18,13 +19,14 @@ interface Props {
   reviewType: "basic" | "detailed";
 }
 
-interface Review {
-  placeId: string;
-  type: "basic" | "detailed";
-  userEmail: string;
+interface ReviewSubmitData {
   comment: string;
   rating: number;
   imageId: string;
+  placeId: string;
+  type: "basic" | "detailed";
+  userEmail: string;
+  date: string;
 }
 
 const ReviewForm = ({ selectedPlaceId, reviewType }: Props) => {
@@ -41,7 +43,7 @@ const ReviewForm = ({ selectedPlaceId, reviewType }: Props) => {
   });
 
   const newReviewMutation = useMutation({
-    mutationFn: (newReviewData: Review) =>
+    mutationFn: (newReviewData: ReviewSubmitData) =>
       axios.post("/api/reviews", newReviewData),
     onSuccess: () => {
       reset();
@@ -57,35 +59,42 @@ const ReviewForm = ({ selectedPlaceId, reviewType }: Props) => {
         type: reviewType,
         userEmail: session?.user?.email, // Add a default value for userId
         imageId: data.imageId,
+        date: new Date().toISOString(),
       });
     }
   });
 
   return (
     <form onSubmit={onSubmit}>
-      <Controller
-        name="rating"
-        control={control}
-        render={({ field }) => (
-          <RatingStars
-            name="basicRating"
-            stars={parseFloat(field.value)}
-            setStars={field.onChange}
-            label={""}
-          />
-        )}
-      />
+      {reviewType === "basic" ? (
+        <Controller
+          name="rating"
+          control={control}
+          render={({ field }) => (
+            <>
+              <RatingStars
+                name="basicRating"
+                stars={parseFloat(field.value)}
+                setStars={field.onChange}
+                label={""}
+              />
 
-      <label className="form-control w-full max-w-xs mb-2">
-        <div className="label">
-          <span className="label-text">Care to elaborate?</span>
-        </div>
-        <textarea
-          className="textarea textarea-bordered w-full max-w-xs "
-          {...register("comment")}
-          placeholder="Comment"
-        ></textarea>
-      </label>
+              <label className="form-control w-full max-w-xs mb-2">
+                <div className="label">
+                  <span className="label-text">Care to elaborate?</span>
+                </div>
+                <textarea
+                  className="textarea textarea-bordered w-full max-w-xs "
+                  {...register("comment")}
+                  placeholder="Comment"
+                ></textarea>
+              </label>
+            </>
+          )}
+        />
+      ) : (
+        <ItemList />
+      )}
 
       <label className="form-control w-full max-w-xs mb-2">
         <div className="label">

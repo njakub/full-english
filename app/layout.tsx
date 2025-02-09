@@ -25,7 +25,9 @@ export default function RootLayout({
         <QueryClientProvider>
           <AuthProvider>
             <Header />
-            <main className="p-5 flex flex-col w-9/10 mx-auto">{children}</main>
+            <main className="p-5 flex flex-col items-center w-9/10 mx-auto">
+              {children}
+            </main>
           </AuthProvider>
         </QueryClientProvider>
       </body>

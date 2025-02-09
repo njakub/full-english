@@ -3,7 +3,7 @@ import React from "react";
 interface Props {
   stars: number;
   setStars: (stars: number) => void;
-  label: string;
+  label?: string;
   name: string;
 }
 

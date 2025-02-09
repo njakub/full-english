@@ -14,14 +14,14 @@ datasource db {
 }
 
 model Place {
-    id       Int     @id @default(autoincrement())
-    googleId String  @unique
-    name     String
-    address  String
-    rating   Float?
-    googleRating  Float
-    image    String?
-    reviews  Review[]
+  id           Int      @id @default(autoincrement())
+  googleId     String   @unique
+  name         String
+  address      String
+  rating       Float?
+  googleRating Float
+  image        String?
+  reviews      Review[]
 }
 
 model Item {
@@ -30,7 +30,7 @@ model Item {
   rating   Float
   type     String
   comment  String?
-  Review   Review  @relation(fields: [reviewId], references: [id])
+  review   Review  @relation(fields: [reviewId], references: [id])
   reviewId Int
 }
 
@@ -39,7 +39,7 @@ model Review {
   comment String?
   rating  Float
   items   Item[]
-  User    User     @relation(fields: [userId], references: [id])
+  user    User     @relation(fields: [userId], references: [id])
   userId  String
   type    String
   date    DateTime @default(now())

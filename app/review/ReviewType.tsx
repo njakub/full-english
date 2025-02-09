@@ -12,7 +12,6 @@ const ReviewType = ({ reviewType, setReviewType }: Props) => {
   };
   return (
     <div className="flex items-center mt-2">
-      <span className="label label-text mr-4">Review Type:</span>
       <label className="flex items-center mr-4">
         <input
           type="radio"

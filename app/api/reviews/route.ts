@@ -26,12 +26,16 @@ export async function POST(request: NextRequest) {
 
   const reviewData: any = {
     comment: body.comment,
-    review: parseFloat(body.review),
+    rating: parseFloat(body.rating),
     type: body.type,
-    placeId: body.placeId,
     User: {
       connect: {
         id: user.id,
+      },
+    },
+    place: {
+      connect: {
+        id: body.placeId, // replace this with the actual place ID
       },
     },
     ...(body.imageId && { imageId: body.imageId }),
@@ -41,7 +45,7 @@ export async function POST(request: NextRequest) {
     reviewData.items = {
       create: body.items.map((item: any) => ({
         name: item.name,
-        review: item.review,
+        rating: item.rating,
         type: item.type,
         comment: item.comment,
       })),

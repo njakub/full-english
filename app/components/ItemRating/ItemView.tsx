@@ -1,5 +1,5 @@
 import React from "react";
-import { ItemType, BREAKFAST_ITEMS } from "./ItemList";
+import { ItemType, BREAKFAST_ITEMS } from "./DetailedReview";
 import Image from "next/image";
 import StaticStars from "../RatingStars/StaticStars";
 

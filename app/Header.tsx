@@ -45,21 +45,21 @@ const Header = () => {
                 </li>
               </>
             )}
-            <li>
-              <div className="divider" />
-              {status === "authenticated" ? (
-                <>
-                  {session?.user?.name}
-                  <Link className="ml-3" href="/api/auth/signout">
-                    Logout
-                  </Link>
-                </>
-              ) : (
-                <Link className="mr-5" href="/api/auth/signin">
-                  Login
-                </Link>
-              )}
-            </li>
+            <div className="divider" />
+            {status === "authenticated" ? (
+              <>
+                <li>
+                  <Link href="/profile">{session?.user?.name}</Link>
+                </li>
+                <li>
+                  <Link href="/api/auth/signout">Logout</Link>
+                </li>
+              </>
+            ) : (
+              <li>
+                <Link href="/api/auth/signin">Login</Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>

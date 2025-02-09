@@ -24,7 +24,10 @@ export const BREAKFAST_ITEMS: ItemType[] = [
   { value: "chips", label: "Chips" },
 ];
 
-const ItemsList = () => {
+/*
+Change behaviour to add item after selecting from the dropdown and then rating it removign the needfor the rate item button
+*/
+const DetailedReview = () => {
   const [items, setItems] = useState<ItemType[]>([]);
   const [showItemForm, setShowItemForm] = useState(false);
   const [availableItems, setAvailableItems] =
@@ -79,4 +82,4 @@ const ItemsList = () => {
   );
 };
 
-export default ItemsList;
+export default DetailedReview;

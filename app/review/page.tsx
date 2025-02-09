@@ -3,7 +3,7 @@ import React from "react";
 import ReviewForm from "./ReviewForm";
 import PlacesAutocomplete from "../components/PlacesAutocomplete/PlacesAutocomplete";
 import ReviewType from "./ReviewType";
-import ItemList from "../components/ItemRating/ItemList";
+import ItemList from "../components/ItemRating/DetailedReview";
 import PlaceDetailsCard from "../components/PlaceDetailsCard/PlaceDetailsCard";
 
 const RatePage = () => {
@@ -22,12 +22,11 @@ const RatePage = () => {
         <>
           <PlaceDetailsCard place={selectedPlace} />
           <ReviewForm
-            selectedPlaceId={selectedPlace.place_id}
+            selectedPlaceId={selectedPlace.id}
             reviewType={reviewType}
           />
         </>
       )}
-      {reviewType === "detailed" && <ItemList />}
     </>
   );
 };
