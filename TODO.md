@@ -10,6 +10,7 @@
 
 - [ ] Make item rating editable and deletable / general cleanup
 - [ ] Cleanup styling / come up with guidelines / figma?
+- [ ] Change IDs in database to UUIDs using postgres extension uuid-ossp
 
 ## Testing
 
