@@ -15,7 +15,7 @@
 ## Testing
 
 - [ ] Add unit tests
-- [ ] Add E2E tests
+- [ ] Add E2E tests test
 
 ## Documentation
 
