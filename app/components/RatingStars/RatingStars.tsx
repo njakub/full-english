@@ -5,6 +5,7 @@ interface Props {
   setStars: (stars: number) => void;
   label?: string;
   name: string;
+  size?: string;
 }
 
 const RATING_DESCRIPTIONS = {
@@ -21,7 +22,7 @@ const RATING_DESCRIPTIONS = {
   5: "Perfection!",
 };
 
-const RatingStars = ({ stars, setStars, label, name }: Props) => {
+const RatingStars = ({ stars, setStars, label, name, size = "lg" }: Props) => {
   const onOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setStars(parseFloat(e.target.value));
   };
@@ -30,7 +31,7 @@ const RatingStars = ({ stars, setStars, label, name }: Props) => {
       <div className="label">
         <span className="label-text">{label}</span>
       </div>
-      <div className="rating rating-lg rating-half flex items-center">
+      <div className={`rating rating-${size} rating-half flex items-center`}>
         <input
           type="radio"
           name={`${name}-0`}

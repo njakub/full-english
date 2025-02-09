@@ -1,12 +1,13 @@
 "use client";
 import { useSession } from "next-auth/react";
 import React from "react";
-import { useForm, Resolver, Controller } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import RatingStars from "../components/RatingStars/RatingStars";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import UploadImage from "./UploadImage";
-import ItemList from "../components/ItemRating/DetailedReview";
+import DetailedReviewForm from "../components/DetailedReviewForm/DetailedReviewForm";
+import { calculateAverageRating } from "../utility/ratingsUtil";
 
 type FormValues = {
   comment: string;
@@ -36,11 +37,14 @@ const ReviewForm = ({ selectedPlaceId, reviewType }: Props) => {
     register,
     handleSubmit,
     control,
+    watch,
     formState: { errors },
     reset,
   } = useForm<FormValues>({
     defaultValues: { comment: "", rating: "0", imageId: "" },
   });
+
+  const formValues = watch();
 
   const newReviewMutation = useMutation({
     mutationFn: (newReviewData: ReviewSubmitData) =>
@@ -51,10 +55,15 @@ const ReviewForm = ({ selectedPlaceId, reviewType }: Props) => {
   });
 
   const onSubmit = handleSubmit((data) => {
+    console.log("data", data);
+
+    const rating =
+      reviewType === "basic" ? data.rating : calculateAverageRating(data);
+
     if (session?.user?.email) {
       newReviewMutation.mutate({
         ...data,
-        rating: Number(data.rating),
+        rating: Number(rating),
         placeId: selectedPlaceId,
         type: reviewType,
         userEmail: session?.user?.email, // Add a default value for userId
@@ -67,33 +76,32 @@ const ReviewForm = ({ selectedPlaceId, reviewType }: Props) => {
   return (
     <form onSubmit={onSubmit}>
       {reviewType === "basic" ? (
-        <Controller
-          name="rating"
-          control={control}
-          render={({ field }) => (
-            <>
+        <>
+          <Controller
+            name="rating"
+            control={control}
+            render={({ field }) => (
               <RatingStars
-                name="basicRating"
+                name="rating"
                 stars={parseFloat(field.value)}
                 setStars={field.onChange}
                 label={""}
               />
-
-              <label className="form-control w-full max-w-xs mb-2">
-                <div className="label">
-                  <span className="label-text">Care to elaborate?</span>
-                </div>
-                <textarea
-                  className="textarea textarea-bordered w-full max-w-xs "
-                  {...register("comment")}
-                  placeholder="Comment"
-                ></textarea>
-              </label>
-            </>
-          )}
-        />
+            )}
+          />
+          <label className="form-control w-full max-w-xs mb-2">
+            <div className="label">
+              <span className="label-text">Care to elaborate?</span>
+            </div>
+            <textarea
+              className="textarea textarea-bordered w-full max-w-xs "
+              {...register("comment")}
+              placeholder="Comment"
+            ></textarea>
+          </label>
+        </>
       ) : (
-        <ItemList />
+        <DetailedReviewForm control={control} formValues={formValues} />
       )}
 
       <label className="form-control w-full max-w-xs mb-2">

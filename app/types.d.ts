@@ -17,3 +17,15 @@ interface Review {
   date: string;
   place: Place;
 }
+
+type ItemOption = {
+  value: string;
+  label: string;
+};
+
+type ItemReview = {
+  label: string;
+  value: string;
+  rating?: number;
+  comment?: string;
+};
